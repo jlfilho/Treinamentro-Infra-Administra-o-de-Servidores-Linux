@@ -155,3 +155,176 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+---
+
+# 🧭 **Módulo 2 – Comandos Linux Essenciais (4h)**
+
+🎯 **Objetivo:** Familiarizar os participantes com o terminal Linux e comandos básicos de administração.
+
+---
+
+## 📁 1. Navegação no Sistema de Arquivos (30 min)
+
+### ✅ Comandos:
+
+* `pwd` – mostra o diretório atual
+* `ls` – lista arquivos e pastas
+* `cd` – navega entre diretórios
+
+### 🧪 Passos:
+
+```bash
+pwd                      # Mostra onde estou
+ls                       # Lista arquivos da pasta atual
+ls -l                    # Lista detalhada
+ls -a                    # Lista arquivos ocultos
+cd /tmp                  # Vai para o diretório /tmp
+cd ~                     # Vai para o diretório do usuário
+cd ..                    # Volta uma pasta
+```
+
+---
+
+## 📦 2. Manipulação de Arquivos e Diretórios (30 min)
+
+### ✅ Comandos:
+
+* `mkdir` – cria diretórios
+* `touch` – cria arquivos vazios
+* `cp`, `mv`, `rm` – copiar, mover e remover
+
+### 🧪 Passos:
+
+```bash
+mkdir pasta_exemplo                  # Cria uma nova pasta
+cd pasta_exemplo
+touch arquivo1.txt                   # Cria um arquivo vazio
+cp arquivo1.txt copia.txt            # Copia o arquivo
+mv copia.txt renomeado.txt           # Renomeia ou move
+rm renomeado.txt                     # Remove o arquivo
+rm -r pasta_exemplo                  # Remove diretório recursivamente
+```
+
+---
+
+## 🔐 3. Permissões e Usuários (45 min)
+
+### ✅ Comandos:
+
+* `chmod` – altera permissões
+* `chown` – altera dono do arquivo
+* `useradd`, `passwd`, `groups`
+
+### 🧪 Permissões:
+
+```bash
+touch exemplo.txt
+ls -l exemplo.txt                  # Veja as permissões padrão
+chmod 755 exemplo.txt              # rwxr-xr-x
+chmod u+x exemplo.txt              # Adiciona permissão de execução para o dono
+chown root:root exemplo.txt        # Altera dono e grupo
+```
+
+### 🧪 Usuários:
+
+```bash
+sudo useradd aluno01              # Cria usuário
+sudo passwd aluno01               # Define senha
+sudo usermod -aG sudo aluno01     # Adiciona ao grupo sudo
+groups aluno01                    # Verifica grupos
+```
+
+---
+
+## 📖 4. Visualização de Arquivos (30 min)
+
+### ✅ Comandos:
+
+* `cat`, `less`, `more`, `tail`, `head`
+
+### 🧪 Passos:
+
+```bash
+echo -e "linha 1\nlinha 2\nlinha 3" > texto.txt
+cat texto.txt                     # Mostra todo o conteúdo
+head texto.txt                    # Mostra as primeiras 10 linhas
+tail texto.txt                    # Mostra as últimas 10 linhas
+less texto.txt                    # Navegação interativa com barra de rolagem
+```
+
+---
+
+## 🖥 5. Monitoramento e Processos (30 min)
+
+### ✅ Comandos:
+
+* `ps`, `top`, `htop`, `kill`
+
+### 🧪 Passos:
+
+```bash
+ps aux                            # Lista todos os processos
+ps -ef | grep nome                # Busca processo pelo nome
+top                               # Interface de monitoramento em tempo real
+htop                              # Interface amigável (instalar com apt/yum)
+kill -9 PID                       # Força o encerramento de um processo
+```
+
+---
+
+## 📦 6. Gerenciamento de Pacotes (30 min)
+
+### ✅ Ubuntu/Debian:
+
+```bash
+sudo apt update                          # Atualiza lista de pacotes
+sudo apt upgrade                         # Atualiza pacotes
+sudo apt install htop                    # Instala um pacote
+sudo apt remove htop                     # Remove um pacote
+```
+
+---
+
+## 🧪 Atividades Práticas (45 min)
+
+### 📝 Tarefas propostas:
+
+1. Criar um diretório `projetos` e dentro dele:
+
+   * Criar 3 arquivos (`a.txt`, `b.txt`, `c.txt`)
+   * Copiar o conteúdo de `a.txt` para `b.txt`
+   * Mover `c.txt` para fora da pasta
+
+2. Alterar permissões de um arquivo para que:
+
+   * Dono tenha leitura e escrita
+   * Grupo tenha somente leitura
+   * Outros não tenham acesso
+
+3. Instalar o `htop` e abrir o monitoramento.
+
+5. Criar um script de teste:
+
+   ```bash
+   echo -e "#!/bin/bash\nsleep 60" > script.sh
+   chmod +x script.sh
+   ./script.sh &
+   ```
+
+   * Localizar o processo com `ps`
+   * Finalizar com `kill`
+
+---
+
+## ✅ Encerramento e Dicas Finais (15 min)
+
+* Use `man comando` para ajuda de qualquer comando:
+
+  ```bash
+  man chmod
+  ```
+* Use `--help` para ver opções rápidas:
+
+  ```bash
+  cp --help
+  ```
